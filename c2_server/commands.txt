@@ -1,1 +1,1 @@
-
+/bin/bash^-c^whoami
